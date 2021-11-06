@@ -6,37 +6,59 @@ namespace CalculadoraIMC
     {
         static void Main(string[] args)
         {
-           double massa, altura, imc;
+           //double massa, altura, imc;
            string diagnostico="";
             Console.WriteLine(" -- Calculadora IMC --\n");
 
             Console.Write("Digite seu peso em Kg...:");
-            massa=Convert.ToDouble(Console.ReadLine());
+           double massa=Convert.ToDouble(Console.ReadLine());
             Console.Write("Digite sua altura em m..:");
-            altura=Convert.ToDouble(Console.ReadLine());
+            double altura=Convert.ToDouble(Console.ReadLine());
 
-            imc = massa/ Math.Pow(altura, 2);
+            double imc = massa / (altura * altura);
             Console.WriteLine($"Seu IMC é: {imc:n2} kg/m².");
              
-            if(imc<17){
-               diagnostico= "Muito abaixo do peso";
-             else if(imc < 18.5)
-                  diagnostico="Abaixo do peso";
+            if(imc < 17)
+            {
+               diagnostico = "Muito abaixo do peso";
+            }  
+              else if(imc < 18.5)
+              {
+                  diagnostico = "Abaixo do peso";
+              }
+              else if(imc < 18.5)
+                {
+                  diagnostico = "Abaixo do peso";
+                }
               else if (imc < 25)    
-                  diagnostico="Peso normal";
+              {
+                  diagnostico = "Peso normal";
+              }
 
               else if (imc< 30)
-                 diagnostico="Acima do peso";
-            } else if (imc < 35)
+              {
+                 diagnostico = "Acima do peso";
+              }
+             else if (imc < 35)
+             {
                diagnostico = "Obesidade I";
+             }
                else if (imc <40)
+               {
                 diagnostico = "Obesidade II (Severa)";
-             Console.WriteLine($"diagnostico: {diagnostico}");
+               }
+
+               else
+            {
+                diagnostico = "Obesidade III (mórbida)";
+            }
+               
+               Console.WriteLine($"diagnostico: {diagnostico}"); 
+               
+            }
+                
             
-
-            
-
-
+         
         }
     }
-}
+
